@@ -67,6 +67,36 @@
          color: #ccc;
          padding: 25px 0;
       }
+
+      .profile-photo {
+         margin: 25px auto;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         text-align: center;
+         color: white;
+      }
+
+
+      .photo-preview {
+         width: 170px;
+         height: 170px;
+         border: 3px dashed rgba(255, 255, 255, 0.6);
+         border-radius: 50%;
+         overflow: hidden;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         margin-bottom: 8px;
+      }
+
+
+      .photo-preview img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+      }
+
    </style>
 </head>
 
@@ -92,8 +122,37 @@
 
    <!-- Hero -->
    <section class="hero text-center">
-      <div class="container">
-         <h1 class="display-4 fw-bold">Hi, I'm <span>Hlalumi</span></h1>
+      <div class="container d-flex flex-column align-items-center">
+         <!-- <h1 class="display-4 fw-bold">Hi, I'm <span>Hlalumi</span></h1>
+         <div class="profile-photo">
+            <label for="photoInput">Profile Photo</label>
+          
+            <div class="photo-preview">
+              <img id="photoPreview" src="" alt="Your photo will appear here" />
+            </div> -->
+          
+            <h1 class="display-4 fw-bold">Hi, I'm <span>Hlalumi</span></h1>
+            
+            <div class="profile-photo">
+               <label for="photoInput">Profile Photo</label>
+            
+               <div class="photo-preview">
+                  <img id="photoPreview" alt="Your photo will appear here" />
+               </div>
+            
+               <input type="file" id="photoInput" accept="image/*">
+            </div>
+            
+            <p class="lead mt-3">Junior Web Developer | Frontend & Backend Learner</p>
+            
+
+            <!-- <input
+              type="file"
+              id="photoInput"
+              accept="image/*"
+            /> -->
+          </div>
+          
          <p class="lead mt-3">Junior Web Developer | Frontend & Backend Learner</p>
          <p class="mt-4">I build clean, responsive, and user-focused web applications.</p>
          <a href="#projects" class="btn btn-warning btn-lg mt-4">View My Work</a>
@@ -221,6 +280,42 @@
    </footer>
 
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+   
+   
+   <script>
+      const input = document.getElementById("photoInput");
+      const preview = document.getElementById("photoPreview");
+
+      input.addEventListener("change", () => {
+         const file = input.files[0];
+         if (!file) return;
+
+         // Preview
+         const reader = new FileReader();
+         reader.onload = () => {
+            preview.src = reader.result;
+         };
+         reader.readAsDataURL(file);
+
+         // Upload
+         const formData = new FormData();
+         formData.append("photo", file);
+
+         fetch("/api/upload-photo", {
+            method: "POST",
+            body: formData
+         })
+            .then(res => res.json())
+            .then(data => {
+               console.log("Upload success:", data);
+            })
+            .catch(err => {
+               console.error("Upload error:", err);
+            });
+      });
+   </script>
+    
 </body>
 
 </html>
