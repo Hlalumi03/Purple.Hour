@@ -123,36 +123,18 @@
    <!-- Hero -->
    <section class="hero text-center">
       <div class="container d-flex flex-column align-items-center">
-         <!-- <h1 class="display-4 fw-bold">Hi, I'm <span>Hlalumi</span></h1>
+         <h1 class="display-4 fw-bold">Hi, I'm <span>Hlalumi</span></h1>
+
          <div class="profile-photo">
             <label for="photoInput">Profile Photo</label>
-          
-            <div class="photo-preview">
-              <img id="photoPreview" src="" alt="Your photo will appear here" />
-            </div> -->
-          
-            <h1 class="display-4 fw-bold">Hi, I'm <span>Hlalumi</span></h1>
-            
-            <div class="profile-photo">
-               <label for="photoInput">Profile Photo</label>
-            
-               <div class="photo-preview">
-                  <img id="photoPreview" alt="Your photo will appear here" />
-               </div>
-            
-               <input type="file" id="photoInput" accept="image/*">
-            </div>
-            
-            <p class="lead mt-3">Junior Web Developer | Frontend & Backend Learner</p>
-            
 
-            <!-- <input
-              type="file"
-              id="photoInput"
-              accept="image/*"
-            /> -->
-          </div>
-          
+            <div class="photo-preview">
+               <img id="photoPreview" src="" alt="Your photo will appear here" style="display:none;" />
+            </div>
+
+            <input type="file" id="photoInput" accept="image/*">
+         </div>
+
          <p class="lead mt-3">Junior Web Developer | Frontend & Backend Learner</p>
          <p class="mt-4">I build clean, responsive, and user-focused web applications.</p>
          <a href="#projects" class="btn btn-warning btn-lg mt-4">View My Work</a>
@@ -289,30 +271,18 @@
 
       input.addEventListener("change", () => {
          const file = input.files[0];
-         if (!file) return;
+         if (!file) {
+            preview.src = "";
+            preview.style.display = "none";
+            return;
+         }
 
-         // Preview
          const reader = new FileReader();
          reader.onload = () => {
             preview.src = reader.result;
+            preview.style.display = "block";
          };
          reader.readAsDataURL(file);
-
-         // Upload
-         const formData = new FormData();
-         formData.append("photo", file);
-
-         fetch("/api/upload-photo", {
-            method: "POST",
-            body: formData
-         })
-            .then(res => res.json())
-            .then(data => {
-               console.log("Upload success:", data);
-            })
-            .catch(err => {
-               console.error("Upload error:", err);
-            });
       });
    </script>
     
