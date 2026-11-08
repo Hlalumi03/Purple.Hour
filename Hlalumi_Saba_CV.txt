@@ -1,0 +1,32 @@
+Hlalumi Sipho Saba
+Junior Software Developer | Junior Web Developer
+Johannesburg, South Africa
+076 773 4512
+hlalumi.saba@icloud.com
+
+Professional Summary
+Disciplined and self-taught Junior Software Developer with a strong passion for designing and developing user-friendly web applications. Experienced in frontend and backend development using HTML, CSS, Bootstrap, Python, Flask, and MySQL. Skilled at building responsive websites, developing secure authentication systems, and integrating frontend and backend components.
+
+Technical Skills
+Frontend: HTML5, CSS3, Bootstrap, Responsive Web Design
+Backend: Python, Flask
+Database: MySQL
+Other: Git (Basic), Debugging, Cybersecurity Fundamentals, Problem Solving, Software Development Fundamentals
+
+Projects
+Food Shop Web Application - Responsive e-commerce-style web app for browsing products and placing orders.
+User Authentication System - Secure registration and login system using Python and Flask.
+
+Certifications
+Melsoft Academy: HTML, CSS, Bootstrap
+Professional Development Course: Workplace Readiness, Professional Development
+
+Education
+King Sabata Dalindyebo College - Civil Engineering (N1-N3), 2019-2021
+Khanyisa High School - National Senior Certificate (Matric), 2015-2018
+
+Core Competencies
+Problem Solving, Team Collaboration, Communication Skills, Time Management, Adaptability, Critical Thinking, Self-Learning, Attention to Detail
+
+Career Objective
+Seeking a Junior Software Developer, Junior Web Developer, Graduate Developer, or Entry-Level IT position where I can apply my technical skills, continue learning modern technologies, and contribute to developing innovative software solutions while growing within a dynamic development team.
